@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace YOUR-DOMAIN.com with your actual domain when it is connected. -->
+<!-- Sitemap URL uses the production domain. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN.com/</loc>
+    <loc>https://www.nwaforchukwunonso.site/</loc>
   </url>
 </urlset>
+

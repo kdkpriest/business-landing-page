@@ -1,5 +1,6 @@
-# Replace YOUR-DOMAIN.com with your actual domain when it is connected.
+# Sitemap points to the production domain.
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://www.nwaforchukwunonso.site/sitemap.xml
+
