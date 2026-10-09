@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#07111f">
+  <title>Certificate Viewer | Nwafor Chukwunonso</title>
+  <style>
+    :root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;background:#07111f;color:#eef5fa}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column}
+    header{padding:18px clamp(18px,5vw,64px);border-bottom:1px solid #1c3046;background:#091624}
+    a{color:#71d4f6}main{width:min(100% - 32px,1100px);margin:32px auto;flex:1}
+    h1{margin:0 0 8px;font-size:clamp(22px,4vw,34px);line-height:1.25}p{color:#aebdca;line-height:1.65}
+    .certificate-frame{display:grid;place-items:center;min-height:45vh;padding:12px;border:1px solid #29445e;border-radius:8px;background:#030a12;overflow:auto}
+    img{display:block;max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain}
+    .error{color:#ffb8b8}.back-link{display:inline-block;margin-top:18px;font-size:14px}
+    footer{padding:18px;text-align:center;color:#8397aa;font-size:12px;border-top:1px solid #1c3046}
+  </style>
+</head>
+<body>
+  <header><a href="../index.html#certifications">← Back to Certifications</a></header>
+  <main>
+    <h1 id="certificate-title">Certificate</h1>
+    <p id="viewer-status" role="status">Loading certificate…</p>
+    <div class="certificate-frame"><img id="certificate-image" alt="" hidden></div>
+    <a class="back-link" href="../index.html#certifications">Return to portfolio</a>
+  </main>
+  <footer>Nwafor Chukwunonso</footer>
+  <script>
+    const certificates = {
+      'excelerate-automation-workflow-specialist.pdf': {
+        title: 'Automation Workflow Specialist (Project-Based) — Excelerate',
+        alt: 'Excelerate Automation Workflow Specialist certificate'
+      },
+      'it-support-specialist.pdf': {
+        title: 'IT Support Specialist — Digital Witch Support Community / Digital Witch Academy',
+        alt: 'IT Support Specialist certificate from Digital Witch Support Community / Digital Witch Academy'
+      },
+      'afriment-digital-marketing.pdf': {
+        title: 'Digital Marketing — Afriment Digital',
+        alt: 'Afriment Digital Marketing certificate'
+      }
+    };
+    const file = new URLSearchParams(window.location.search).get('file');
+    const details = certificates[file];
+    const status = document.getElementById('viewer-status');
+    const image = document.getElementById('certificate-image');
+    if (!details) {
+      status.textContent = 'This certificate file is not available.';
+      status.classList.add('error');
+    } else {
+      document.title = `${details.title} | Nwafor Chukwunonso`;
+      document.getElementById('certificate-title').textContent = details.title;
+      fetch(file).then(response => {
+        if (!response.ok) throw new Error('Certificate file could not be loaded.');
+        return response.arrayBuffer();
+      }).then(bytes => {
+        const imageUrl = URL.createObjectURL(new Blob([bytes], { type: 'image/jpeg' }));
+        image.src = imageUrl;
+        image.alt = details.alt;
+        image.hidden = false;
+        status.textContent = 'Certificate image';
+      }).catch(() => {
+        status.textContent = 'The certificate could not be loaded. Check that the file is present in the certificates folder.';
+        status.classList.add('error');
+      });
+    }
+  </script>
+</body>
+</html>

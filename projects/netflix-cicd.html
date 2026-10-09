@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Explore Nwafor Chukwunonso's Netflix CI/CD deployment project using GitHub Actions, Docker, Amazon ECR and EC2, with a project walkthrough video and workflow overview.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Netflix CI/CD Deployment | Nwafor Chukwunonso</title>
+  <link rel="canonical" href="https://www.nwaforchukwunonso.site/projects/netflix-cicd.html">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <meta property="og:title" content="Netflix CI/CD Deployment | Nwafor Chukwunonso">
+  <meta property="og:description" content="A containerized movie application deployment project using GitHub Actions, Docker, Amazon ECR and EC2.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.nwaforchukwunonso.site/projects/netflix-cicd.html">
+  <meta property="og:image" content="https://www.nwaforchukwunonso.site/images/netflix-cicd.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Netflix CI/CD Deployment | Nwafor Chukwunonso">
+  <meta name="twitter:description" content="A containerized movie application deployment project using GitHub Actions, Docker, Amazon ECR and EC2.">
+  <meta name="twitter:image" content="https://www.nwaforchukwunonso.site/images/netflix-cicd.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="../index.html#home" aria-label="Nwafor Chukwunonso home"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-name">Nwafor</span><span class="brand-light">Digital</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html#projects">Projects</a><a href="../index.html#home">Home</a><a href="../index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="project-detail-main">
+    <section class="project-detail-hero wrap" aria-labelledby="project-title">
+      <a class="project-back-link" href="../index.html#projects"><span aria-hidden="true">←</span> Back to Projects</a>
+      <div class="project-detail-heading">
+        <p class="eyebrow"><span class="status-dot"></span> DEVOPS &amp; CI/CD</p>
+        <h1 id="project-title">Netflix CI/CD Deployment</h1>
+        <p class="project-detail-intro">This project explores the process of building and deploying a containerized movie application using Docker, GitHub Actions, Amazon ECR and Amazon EC2. It helped me understand how container images move from a development repository to a cloud-hosted application.</p>
+      </div>
+      <figure class="project-feature-image"><img src="../images/netflix-cicd.jpg" alt="Project image for the Netflix CI/CD container deployment" fetchpriority="high"><figcaption>Netflix CI/CD Deployment</figcaption></figure>
+    </section>
+
+    <section class="detail-section wrap" aria-labelledby="video-title">
+      <div class="detail-section-heading"><p class="eyebrow">PROJECT WALKTHROUGH</p><h2 id="video-title">Watch the <span class="serif">deployment</span></h2></div>
+      <div class="project-video"><iframe src="https://www.youtube-nocookie.com/embed/jQxNxdNHeyg" title="Netflix CI/CD Deployment project walkthrough by Nwafor Chukwunonso" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=jQxNxdNHeyg" target="_blank" rel="noopener noreferrer">Watch on YouTube <span aria-hidden="true">↗</span></a></p>
+    </section>
+
+    <section class="detail-section detail-section-alt" aria-labelledby="overview-title"><div class="wrap detail-copy-layout">
+      <div class="detail-section-heading"><p class="eyebrow">PROJECT OVERVIEW</p><h2 id="overview-title">From source code to <span class="serif">running containers</span></h2></div>
+      <div class="detail-prose"><p>The goal was to explore a practical container deployment path for a movie application. The project connects source code in GitHub with a CI/CD workflow that builds container images, publishes them to Amazon ECR, and runs the tagged images on an EC2 server.</p><p>This flow makes the image handoff between development and the cloud environment easier to follow. The workflow below summarizes the stages covered by the project.</p></div>
+    </div></section>
+
+    <section class="detail-section wrap" aria-labelledby="workflow-title">
+      <div class="detail-section-heading"><p class="eyebrow">CI/CD WORKFLOW</p><h2 id="workflow-title">The deployment <span class="serif">path</span></h2><p class="detail-section-lede">Follow the image from its source through the registry to the EC2 host.</p></div>
+      <ol class="workflow-list">
+        <li class="workflow-step"><span class="workflow-number">01</span><h3>GitHub repository</h3><p>Application source is stored in GitHub.</p></li>
+        <li class="workflow-step"><span class="workflow-number">02</span><h3>GitHub Actions</h3><p>The workflow runs from the repository.</p></li>
+        <li class="workflow-step"><span class="workflow-number">03</span><h3>Build Docker images</h3><p>Build the frontend and backend images.</p></li>
+        <li class="workflow-step"><span class="workflow-number">04</span><h3>Push to Amazon ECR</h3><p>Publish the tagged images to their repositories.</p></li>
+        <li class="workflow-step"><span class="workflow-number">05</span><h3>Pull images on EC2</h3><p>Pull the intended image tags onto the server.</p></li>
+        <li class="workflow-step"><span class="workflow-number">06</span><h3>Run containers</h3><p>Start the application containers on EC2.</p></li>
+      </ol>
+    </section>
+
+    <section class="detail-section detail-section-alt" aria-labelledby="implementation-title"><div class="wrap detail-copy-layout">
+      <div class="detail-section-heading"><p class="eyebrow">IMPLEMENTATION</p><h2 id="implementation-title">Containers, registry <span class="serif">and EC2</span></h2></div>
+      <div class="detail-prose"><p>The frontend and backend are packaged as separate Docker images. The images are pushed to Amazon ECR repositories, then the selected tags are pulled onto an EC2 instance and run as application containers.</p><p>GitHub Actions is part of the CI/CD workflow for building and publishing the images. This page describes the documented stages without claiming that every EC2 deployment step runs automatically.</p></div>
+    </div></section>
+
+    <section class="detail-section wrap" aria-labelledby="technologies-title">
+      <div class="detail-section-heading"><p class="eyebrow">TOOLS &amp; SERVICES</p><h2 id="technologies-title">Technologies <span class="serif">used</span></h2></div>
+      <ul class="detail-tech-list"><li>GitHub</li><li>GitHub Actions</li><li>Docker</li><li>Amazon Elastic Container Registry (ECR)</li><li>Amazon EC2</li><li>Linux</li></ul>
+    </section>
+
+    <section class="detail-section lesson-section" aria-labelledby="lesson-title"><div class="wrap lesson-card">
+      <p class="eyebrow">CHALLENGE &amp; LESSON LEARNED</p><h2 id="lesson-title">Check the image <span class="serif">tag first</span></h2>
+      <p>Image tags matter when pulling from Amazon ECR. Pulling a default or incorrect tag instead of the intended version can make troubleshooting confusing because the server may receive a different image than expected.</p>
+      <p>Before investigating permissions, confirm that the image repository and tag in the pull command match the image that was pushed. This simple check helps distinguish a naming or version mismatch from an access issue.</p>
+    </div></section>
+
+    <section class="detail-section wrap project-links-section" aria-labelledby="project-links-title">
+      <div class="detail-section-heading"><p class="eyebrow">PROJECT LINKS</p><h2 id="project-links-title">Related <span class="serif">resources</span></h2></div>
+      <p class="detail-prose">A project-specific GitHub repository link was not available in the current website or project files.</p>
+      <div class="detail-actions"><a class="button button-primary" href="../index.html#projects">Back to Projects <span aria-hidden="true">↗</span></a><a class="button button-outline" href="../index.html#home">Home</a><a class="button button-outline" href="../index.html#contact">Contact</a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-bottom"><span>© <span id="year"></span> Nwafor Chukwunonso. All rights reserved.</span><a href="../index.html#home">Home ↑</a></div></footer>
+</body>
+</html>
+
