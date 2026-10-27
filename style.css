@@ -117,3 +117,12 @@ html{scroll-padding-top:90px}body{background:#07111f;color:var(--ink)}.site-head
 /* Center vertical arrows in the available grid gap. */
 @media(min-width:641px) and (max-width:900px){.architecture-flow .workflow-step:nth-child(2)::after{bottom:-9px}}
 @media(max-width:640px){.architecture-flow .workflow-step:not(:last-child)::after,.architecture-flow .workflow-step:nth-child(2)::after{bottom:-12px}}
+
+/* Keep each architecture badge beside its heading without overlap. */
+.architecture-flow .workflow-step{display:grid;grid-template-columns:27px minmax(0,1fr);column-gap:12px;align-content:start;min-width:0}
+.architecture-flow .workflow-number{grid-column:1;grid-row:1;width:27px;height:27px;flex:0 0 27px;margin:0}
+.architecture-flow .workflow-step h3{grid-column:2;grid-row:1;min-width:0;overflow-wrap:anywhere}
+.architecture-flow .workflow-step p{grid-column:1/-1;min-width:0;margin-top:12px;overflow-wrap:anywhere}
+/* Use a down glyph directly for vertical transitions so font transforms cannot reverse it. */
+@media(min-width:641px) and (max-width:900px){.architecture-flow{row-gap:34px}.architecture-flow .workflow-step:nth-child(2)::after{content:"↓";top:calc(100% + 5px);right:auto;bottom:auto;left:50%;transform:translateX(-50%)}}
+@media(max-width:640px){.architecture-flow{row-gap:34px}.architecture-flow .workflow-step:not(:last-child)::after{content:"↓";top:calc(100% + 5px);right:auto;bottom:auto;left:50%;transform:translateX(-50%);color:#63cff6}}
